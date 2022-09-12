@@ -12,26 +12,53 @@ media_ac = [0, 0, 0, 0]
 menor = min(mes)
 maior = max(mes)
 
-print(media)
+print(f'A média do mês é {round(media)}')
+print()
 
-for temp in s1:
-    if temp > media:
+temp = mes.index(maior)
+sem_m = list()
+
+for t in s1:
+    if t > media:
         media_ac[0] += 1
 
-for temp in s2:
-    if temp > media:
+for t in s2:
+    if t > media:
         media_ac[1] += 1
 
-for temp in s3:
-    if temp > media:
+for t in s3:
+    if t > media:
         media_ac[2] += 1
 
-for temp in s4:
-    if temp > media:
+for t in s4:
+    if t > media:
         media_ac[3] += 1
 
 for cont in range(0,4):
     if media_ac[cont] > 3:
-        print(f'A {cont+1}º semana teve {media_ac[cont]} temperaturas acima da média')
+        print(f'A {cont+1}º semana teve {media_ac[cont]} temperaturas acima da média do mês')
         
+print()
+
 print(f'A menor temperatura foi {menor} e a maior temperatura foi {maior}')
+
+print()
+
+if 0 <= temp < 7:
+    sem_m = s1[:]
+
+if 7 <= temp < 14:
+    sem_m = s2[:]
+    
+if 14 <= temp < 21:
+    sem_m = s3[:]
+    
+if 21 <= temp < 28:
+    sem_m = s4[:]
+
+dias = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']
+
+for cont in range(0,7):
+    print(f'{dias[cont]}: ', '■' * sem_m[cont])
+    
+print()
