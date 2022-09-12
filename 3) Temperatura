@@ -31,7 +31,7 @@ for temp in s4:
         media_ac[3] += 1
 
 for cont in range(0,4):
-    if acima[cont] > 3:
+    if media_ac[cont] > 3:
         print(f'A {cont+1}º semana teve {media_ac[cont]} temperaturas acima da média')
         
 print(f'A menor temperatura foi {menor} e a maior temperatura foi {maior}')
