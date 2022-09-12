@@ -1,0 +1,37 @@
+s1 = [19, 21, 17, 20, 18, 23, 22]
+s2 = [29, 28, 27, 26, 21, 24, 25]
+s3 = [19, 26, 21, 23, 22, 18, 17]
+s4 = [30, 31, 29, 32, 28, 27, 26]
+
+mes = s1 + s2 + s3 + s4
+
+media = sum(mes) / len(mes)
+
+media_ac = [0, 0, 0, 0]
+
+menor = min(mes)
+maior = max(mes)
+
+print(media)
+
+for temp in s1:
+    if temp > media:
+        media_ac[0] += 1
+
+for temp in s2:
+    if temp > media:
+        media_ac[1] += 1
+
+for temp in s3:
+    if temp > media:
+        media_ac[2] += 1
+
+for temp in s4:
+    if temp > media:
+        media_ac[3] += 1
+
+for cont in range(0,4):
+    if acima[cont] > 3:
+        print(f'A {cont+1}º semana teve {media_ac[cont]} temperaturas acima da média')
+        
+print(f'A menor temperatura foi {menor} e a maior temperatura foi {maior}')
