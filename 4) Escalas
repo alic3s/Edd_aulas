@@ -1,0 +1,2 @@
+C = float(input('Informe o valor da temperatura em graus celsius: ')
+F = float(input('Informe o valor da temperatura em graus farenheit: ')
