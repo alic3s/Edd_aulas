@@ -13,6 +13,12 @@ class Pilha:
     def __repr(self):
         return '[' + str(self.topo) + ']'
     
+    def vazia(self):
+        if (self.topo == None):
+            return True
+        else:
+            return False
+    
     def insere(self, novo_dado):
         novo_Nodo = Nodo(novo_dado)
         novo_Nodo.anterior = self.topo
@@ -22,6 +28,10 @@ class Pilha:
     def remove(self):
         assert self.topo
         self.topo = self.topo.anterior
+        self.tamanho -= 1
+        removido = self.topo.dado
+        self.topo = self.topo.anterior
+        return removido
 
 pilha = Pilha()
 
