@@ -5,11 +5,10 @@ def inverte(palavra):
         return palavra[::-1]
     return palavra
 
-frase = input('Ai se eu te pego.')
+frase = (str(input('Digite uma frase: ')))
 
 invertida = ''.join(inverte(palavra) for palavra in re.split(r'(\w+)',frase))
 print(invertida)
-
 
 
 frase = input('Digite uma frase: ')
