@@ -29,3 +29,18 @@ print('A nota geral da proposta foi: ', p2[1] + p2[2] + p2[3])
 print('A nota geral da proposta foi: ', p3[1] + p3[2] + p3[3])
 print('A nota geral da proposta foi: ', p4[1] + p4[2] + p4[3])
 print('A nota geral da proposta foi: ', p5[1] + p5[2] + p5[3])
+
+max_key1 = max(p1, key = p1.get)
+print(max_key)
+
+max_key2 = max(p2, key = p2.get)
+print(max_key2)
+
+max_key3 = max(p3, key = p3.get)
+print(max_key3)
+
+max_key4 = max(p4, key = p4.get)
+print(max_key4)
+
+max_key5 = max(p5, key = p5.get)
+print(max_key5)
