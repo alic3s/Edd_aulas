@@ -16,10 +16,8 @@ class Pilha:
     def insere(self, novo_dado):
         novo_Nodo = Nodo(novo_dado)
         novo_Nodo.anterior = self.topo
-        self.topo = novo_nodo
-        
-    def tamanho(self):
-        return f'O tamanho da lista é {len(Pilha)}'
+        self.topo = novo_Nodo
+        self.tamanho += 1
     
     def remove(self):
         assert self.topo
