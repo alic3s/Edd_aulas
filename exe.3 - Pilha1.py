@@ -9,8 +9,9 @@ class Nodo:
 class Pilha:
     def __init__(self):
         self.topo = None
+        self.tamanho = 0
     
-    def __repr(self):
+    def __repr__(self):
         return '[' + str(self.topo) + ']'
     
     def vazia(self):
@@ -24,7 +25,7 @@ class Pilha:
         novo_Nodo.anterior = self.topo
         self.topo = novo_Nodo
         self.tamanho += 1
-    
+
     def remove(self):
         assert self.topo
         self.topo = self.topo.anterior
@@ -32,12 +33,59 @@ class Pilha:
         removido = self.topo.dado
         self.topo = self.topo.anterior
         return removido
+    
+    #questao um
+    def compara(self, pilha2):
+        if self.tamanho != pilha2.tamanho:
+            return False
+        else:
+            no_atual1 = self.topo
+            no_atual2 = pilha2.topo
+            while(no_atual1 != None):
+                if(no_atual1.dado != no_atual2.dado):
+                    return False
+                no_atual1 = no_atual1.anterior
+                no_atual2 = no_atual2.anterior
+            return True
+
+    # função, questao dois -- def padraoXY(string):
+                    #if len(string) %2 != 0:
+                        #return False
+                    #else:
+                        #string1 = string[:len(string)//2]
+                        #string2 = string[len(string)//2:]
+                        #pilha = Pilha()
+                        #for letra in string1:
+                            #pilha.insere(letra)
+                        #for letra in string2:
+                            #if letra != pilha.remove():
+                                #return False
+                        #return True
+    # questao 3
+    import re
+
+    frase = input('Informe a frase: ')
+    pilha = Pilha()
+
+    if frase[len(frase) - 1] == '.':
+        frase = re.sub('[,.!?]', '', frase)
+        palavras = frase.split(' ')
+        for palavra in palavras:
+            for letra in palavra:
+                pilha.insere(letra)
+            string = ''
+            while not pilha.vazia():
+                string += pilha.remove()
+            print(string, end = ' ')
+    else:
+        print('A frase não termina com .')
+
 
 pilha = Pilha()
 
 for i in range(4):
     pilha.insere(i)
-    print('Insere o valor {0} no topo da pilha: {1}'.format(i,pilha))
+    print(f'Insere o valor {i} no topo da pilha: {pilha}')
 
 print(pilha.tamanho)
 
@@ -45,9 +93,6 @@ while pilha.topo != None:
     pilha.remove()
     print('Removendo o elemento que está no topo da pilha: ', pilha)
 
-    
-
-from Pilha1 import Pilha
 
 def verificar(self, entrada):
     pilha = Pilha()
@@ -69,4 +114,5 @@ def verificar(self, entrada):
         return False
 
 #as expressoes sao: [(x + y) * 2] = 0; [(x + y] * 2) = 0; [(x + y * 2) = 0
+
 string = (list(input('Digite a expresão: ')))
