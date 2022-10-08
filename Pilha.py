@@ -4,7 +4,7 @@ class Nodo:
         self.nodo_anterior = nodo_anterior
     
     def __repr__(self):
-        return '%s --> %s' % (self.dado, self.nodo_anterior)
+        return f'{self.dado} -> {self.nodo_anterior}'
 
 class Pilha:
     def __init__(self):
