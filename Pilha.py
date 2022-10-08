@@ -33,20 +33,7 @@ class Pilha:
         removido = self.topo.dado
         self.topo = self.topo.anterior
         return removido
-
-    # função, questao dois -- def padraoXY(string):
-                    #if len(string) %2 != 0:
-                        #return False
-                    #else:
-                        #string1 = string[:len(string)//2]
-                        #string2 = string[len(string)//2:]
-                        #pilha = Pilha()
-                        #for letra in string1:
-                            #pilha.insere(letra)
-                        #for letra in string2:
-                            #if letra != pilha.remove():
-                                #return False
-                        #return True
+    
     # questao 3
     import re
 
