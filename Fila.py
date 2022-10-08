@@ -37,3 +37,9 @@ class Fila:
         if self.cabeca == None:
             self.cauda = None
         return removido
+
+fila = Fila()
+
+for i in range(5):
+    fila.insere(i)
+print(fila)
