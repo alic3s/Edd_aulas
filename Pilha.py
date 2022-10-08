@@ -33,20 +33,6 @@ class Pilha:
         removido = self.topo.dado
         self.topo = self.topo.anterior
         return removido
-    
-    #questao um
-    def compara(self, pilha2):
-        if self.tamanho != pilha2.tamanho:
-            return False
-        else:
-            no_atual1 = self.topo
-            no_atual2 = pilha2.topo
-            while(no_atual1 != None):
-                if(no_atual1.dado != no_atual2.dado):
-                    return False
-                no_atual1 = no_atual1.anterior
-                no_atual2 = no_atual2.anterior
-            return True
 
     # função, questao dois -- def padraoXY(string):
                     #if len(string) %2 != 0:
