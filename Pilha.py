@@ -27,11 +27,9 @@ class Pilha:
         self.tamanho += 1
 
     def remove(self):
-        assert self.topo
-        self.topo = self.topo.anterior
-        self.tamanho -= 1
         removido = self.topo.dado
         self.topo = self.topo.anterior
+        self.tamanho -= 1
         return removido
 
 
