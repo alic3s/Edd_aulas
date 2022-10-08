@@ -35,6 +35,7 @@ class Pilha:
         return removido
 
 
+#Exemplo de implementação de pilha
 pilha = Pilha()
 
 for i in range(4):
