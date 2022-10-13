@@ -4,7 +4,7 @@
 
 import re
 
-from pilha1 import Pilha
+from classe_pilha import Pilha
 
 frase = str(input('Informe a frase: '))
 
