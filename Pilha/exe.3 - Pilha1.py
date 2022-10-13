@@ -1,27 +1,28 @@
 #Verificação de expressão aritmética
 
+from classe_pilha import Pilha
+
+pilha = Pilha()
+
 def verifica(entrada):
-    pilha_s = Pilha()
-    for s in entrada:
-        if s == '(' or s == '[' or s == '{':
-            pilha_s.insere(s)
-        elif s == ')' or s == ']' or s == '}':
-            if (pilha_s.vazia()):
+    for c in entrada:
+        if c == '(' or c == '[' or c =='{':
+            pilha.insere(c)
+        elif c == ')' or c == ']' or c == '}':
+            if pilha.vazia():
                 return False
-            if s == ')' and pilha_s.remove != '(':
+            if c == ')' and pilha.remove() != '(':
                 return False
-            elif s == ']' and pilha_s.remove != '[':
+            elif c == ']' and pilha.remove() != '[':
                 return False
-            elif s == '}' and pilha_s.remove != '{':
+            elif c == '}' and pilha.remove != '{':
                 return False
 
-    if pilha_s.vazia():
+    if pilha.vazia():
         return True
     else:
         return False
 
+string=(input("Digite expressão: "))
 
-#as expressoes sao: [(x + y) * 2] = 0; [(x + y] * 2) = 0; [(x + y * 2) = 0
-
-string=list(input("Digite expressão: "))
 print(verifica(string))
