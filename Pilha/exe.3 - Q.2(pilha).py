@@ -6,13 +6,25 @@
 def padraoXY(string):
   if len(string) %2 != 0:
     return False
+
   else:
     string1 = string[:len(string)//2]
     string2 = string[len(string)//2:]
+
     pilha = Pilha()
+
     for letra in string1:
       pilha.insere(letra)
-      for letra in string2:
+
+    for letra in string2:
         if letra != pilha.remove():
-          return False
+            return False
         return True
+
+
+string = (input('Digite uma palavra: '))
+
+if padraoXY(string):
+    print('Ao contrário é a mesma coisa')
+elif not padraoXY(string):
+    print('Ao contrario não é igual')
