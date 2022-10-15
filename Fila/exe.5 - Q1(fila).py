@@ -35,7 +35,7 @@ def contaPar(self):
     par = 0
     atual1 = self.cabeca
 
-    while atual1.dado != None:
+    while atual1 != None:
         if atual1.dado % 2 == 0:
             par += 1
 
@@ -45,7 +45,7 @@ def contaPar(self):
 def contaImpar(self):
     impar = 0
     atual1 = self.cabeca
-    while atual1.dado != None:
+    while atual1 != None:
         if atual1.dado%2 != 0:
             impar += 1
 
