@@ -1,29 +1,12 @@
-from fila import Fila
-
-def compara(F1, F2):
-  if F1.tamanho == F2.tamanho:
-    for v in range(F1.tamanho):
-      for v in range(F2.tamanho):
-        if F1 == F2:
-          print(F1, F2)
-
-
-
-
-
-
-
-F1 = Fila()
-
-for i in range(4):
-                                         F1.insere(i)
-print(F1)
-
-
-F2 = Fila()
-
-for i in range(4):
-                                         F2.insere(i)
-print(F2)
-
-compara(F1,F2)
+def compare(self, F2):
+        if self.tamanho != F2.tamanho:
+            return False
+        else:
+            atual1 = self.cabeca
+            atual2 = F2.cabeca
+            while atual1 != None:
+                if atual1.dado != atual2.dado:
+                    return False
+                atual1 = atual1.proximo
+                atual2 = atual2.proximo
+            return True
