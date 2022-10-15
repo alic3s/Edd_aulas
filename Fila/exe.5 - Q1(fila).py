@@ -27,6 +27,34 @@ def compare(F1, F2):
                         atual2 = atual2.proximo
                         return 'Os conteúdos são iguais.'
 
+                
+            
+        
+        
+def contaPar(self):
+    par = 0
+    atual1 = self.cabeca
+
+    while atual1.dado != None:
+        if atual1.dado % 2 == 0:
+            par += 1
+
+        atual1 = atual1.proximo
+    return par
+
+def contaImpar(self):
+    impar = 0
+    atual1 = self.cabeca
+    while atual1.dado != None:
+        if atual1.dado%2 != 0:
+            impar += 1
+
+        atual1 = atual1.proximo
+    return impar
+
+
+
+
 F1 = Fila()
 
 for i in range(1, 9, 2):
