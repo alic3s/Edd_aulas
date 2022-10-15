@@ -58,3 +58,20 @@ fila = Fila()
 for i in range(5):
     fila.insere(i)
 print(fila)
+
+F1 = Fila()
+
+F1.insere(1)
+F1.insere(2)
+F1.insere(3)
+F1.insere(4)
+
+print(F1)
+
+F2 = Fila()
+
+F2.insere(1)
+F2.insere(2)
+F2.insere(3)
+
+print(F1.compare(F2))
