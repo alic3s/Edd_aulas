@@ -8,37 +8,37 @@ não sejam iguais, em tamanho, informe qual fila é maior.
 par.
 Obs. As operações devem ser realizadas sem alteração da fila (sem inserção e remoção).'''
 
-def compare(self, F2):
-        if self.tamanho != F2.tamanho:
-                if self.tamanho > F2.tamanho:
+from classe_fila import Fila
+
+def compare(F1, F2):
+        if F1.tamanho != F2.tamanho:
+                if F1.tamanho > F2.tamanho:
                         return 'A fila 1 é a maior'
                 else:
                         return 'A fila 2 é a maior'
         else:
                 print('As filas possuem o mesmo tamanho')
-                atual1 = self.cabeca
+                atual1 = F1.cabeca
                 atual2 = F2.cabeca
                 while atual1 != None:
                         if atual1.dado != atual2.dado:
-                                return False
+                                return 'Os conteúdos são diferentes.'
                         atual1 = atual1.proximo
                         atual2 = atual2.proximo
-                        return True
-                
+                        return 'Os conteúdos são iguais.'
 
 F1 = Fila()
 
-F1.insere(1)
-F1.insere(2)
-F1.insere(3)
-F1.insere(4)
+for i in range(1, 9, 2):
+    F1.insere(i)
 
 print(F1)
 
 F2 = Fila()
 
-F2.insere(1)
-F2.insere(2)
-F2.insere(3)
+for i in range(1, 9, 2):
+    F2.insere(i)
 
-print(F1.compare(F2))
+print(F2)
+
+print(compare(F1,F2))
