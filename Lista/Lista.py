@@ -67,3 +67,13 @@ class Lista:
                 nodo_anterior.proximo = nodo_atual.proximo
                 self.tamanho -= 1
                 return removido
+            
+     def busca(self, dado):
+       if self.vazia():
+           return 'Elemento não encontrado'
+       else:
+           for i in (self.tamanho):
+               if dado == self.cabeca:
+                   return position
+               else:
+                    i + 1
