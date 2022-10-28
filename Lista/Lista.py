@@ -110,6 +110,7 @@ class Lista:
         elif (posicao == 0):
             self.inicio = Nodo(novo_dado, None)
         else:
+            #self.inicio deve ser self.cabeca
             aux = self.inicio
             for i in range (1, posicao):
                 aux = aux.proximo
