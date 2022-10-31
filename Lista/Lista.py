@@ -9,8 +9,8 @@ class Nodo:
 class Lista:
     def __init__(self):
         self.cabeca = None
-        self.cauda = None
-        self.tamanho = 0
+        #self.cauda = None
+        #self.tamanho = 0
     
     def __repr__(self):
         return "[" + str(self.cabeca) + "]"
@@ -21,25 +21,27 @@ class Lista:
         else:
             return False
     
-    def insereInicio(self, novo_dado):
+    def insereInicio(lista, novo_dado):
         novo_nodo = Nodo(novo_dado)
-        if self.vazia:
-            self.cabeca = novo_nodo
-            self.cauda = novo_nodo
-        else:
-            novo_nodo.proximo = self.cabeca
-            self.cabeca = novo_nodo
-        self.tamanho += 1
+        #if self.vazia:
+           # self.cabeca = novo_nodo
+            #self.cauda = novo_nodo
+        #else:
+        novo_nodo.proximo = lista.cabeca
+        lista.cabeca = novo_nodo
+        #self.tamanho += 1
     
-    def insereFim(self, novo_dado):
+    def insereFim(lista, nodo_anterior, novo_dado):
+        assert nodo_anterior, "Nodo anterior precisa existir na lista."
+
         novo_nodo = Nodo(novo_dado)
-        if self.vazia:
-            self.cabeca = novo_nodo
-            self.cauda = novo_nodo
-        else:
-            self.cauda.proximo = novo_nodo
-            self.cauda = novo_nodo
-        self.tamanho += 1
+        #if self.vazia:
+            #self.cabeca = novo_nodo
+            #self.cauda = novo_nodo
+        #else:
+        novo_nodo.proximo = nodo_anterior.proximo
+        nodo_anterior.proximo = novo_nodo
+        #self.tamanho += 1
     
     def remove(self, posicao):
         if self.vazia:
@@ -110,7 +112,6 @@ class Lista:
         elif (posicao == 0):
             self.inicio = Nodo(novo_dado, None)
         else:
-            #self.inicio deve ser self.cabeca
             aux = self.inicio
             for i in range (1, posicao):
                 aux = aux.proximo
