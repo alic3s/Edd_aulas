@@ -70,18 +70,12 @@ class Lista:
             self.tamanho -= 1
             return removido
     
-    def busca(self, dado):
-        if self.vazia:
-            return 'Elemento não encontrado'
-        else:
-            nodo_atual = self.cabeca
-            for i in range(self.tamanho):
-                if nodo_atual.dado != dado:
-                    nodo_atual = nodo_atual.proximo
-                else:
-                    return i
-            return 'Elemento não encontrado'
-    
+    def busca(lista, dado):
+        nodo_atual = lista.cabeca
+        while nodo_atual and nodo_atual.dado != dado:
+            nodo_atual = nodo_atual.proximo
+        return nodo_atual
+        
     '''def insere(self, novo_dado, posicao):
         if 0 <= posicao <= self.tamanho:
             if posicao == 0:
