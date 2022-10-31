@@ -1,8 +1,11 @@
-from Lista import Nodo, Lista
+from Lista import Lista
 
-lista1 = Lista()
-lista2 = Lista()
+lista = Lista()
+print("Lista vazia:", lista)
 
-for i in range(3):
-    lista1.insereInicio(i)
-    print(lista1)
+lista.insereInicio(5)
+print("Lista contém um único elemento:", lista)
+
+nodo_anterior = lista.cabeca
+lista.insereFim(nodo_anterior, 10)
+print("Inserindo um novo elemento depois de um outro:", lista)
