@@ -112,3 +112,35 @@ class Lista:
             aux.proximo = Nodo(novo_dado, aux.proximo)
         self.tamanho = self.tamanho + 1
         return True
+
+
+
+#def insere(self, novo_dado, posicao):
+novo_nodo = Nodo(novo_dado)
+if posicao == 0:
+    self.insereInicio(novo_dado)
+elif posicao == self.tamanho:
+    self.insereFim(noov_dado)
+elif self.vazia():
+    print('Lista vazia. Posição inexistente')
+else:
+    #auxiliar para chegar na posição
+    aux= 0
+
+if (posicao >= self.tamanho):
+    print('Posição inválida')
+else:
+    #começa a verificar a posição
+    nodo_atual = self.cabeca
+
+    while aux != posicao:
+        nodo_anterior = nodo_atual
+        nodo_atual = nodo_atual.proximo
+        aux += 1
+
+def concatena(self, lista2):
+    self.cauda.proximo = lista2.cabeca
+    return self
+
+
+l1 = Lista()
