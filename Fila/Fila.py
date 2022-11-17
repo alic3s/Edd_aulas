@@ -39,9 +39,28 @@ class Fila:
         if self.cabeca == None:
             self.cauda = None
         return removido
-
+    
 fila = Fila()
 
 for i in range(5):
     fila.insere(i)
+    print(fila)
+
+for i in range(5):
+    fila.remove()
+    print(fila)
+
+fila = []
+print("Informe os valores da Fila")
+print()
+# PREENCHENDO A Fila
+for cont in range(7):
+    fila.append(int(input('Informe o valor ' + str(cont + 1) + ' para a fila: ')))
+    print(fila)
+# ESVAZIANDO A FILA
+print("Removendo os valores da Fila:")
 print(fila)
+while len(fila) > 0:
+    fila.pop(0)
+    print(fila)
+# FINALIZANDO O PROGRAMA
