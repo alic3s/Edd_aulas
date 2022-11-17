@@ -9,8 +9,8 @@ class Nodo:
 class Lista:
     def __init__(self):
         self.cabeca = None
-        #self.cauda = None
-        #self.tamanho = 0
+        self.cauda = None
+        self.tamanho = 0
     
     def __repr__(self):
         return "[" + str(self.cabeca) + "]"
@@ -21,126 +21,124 @@ class Lista:
         else:
             return False
     
-    def insereInicio(lista, novo_dado):
+    def insereInicio(self, novo_dado):
         novo_nodo = Nodo(novo_dado)
-        #if self.vazia:
-           # self.cabeca = novo_nodo
-            #self.cauda = novo_nodo
-        #else:
-        novo_nodo.proximo = lista.cabeca
-        lista.cabeca = novo_nodo
-        #self.tamanho += 1
+        
+        if self.vazia():
+            self.cabeca = novo_nodo
+            self.cauda = novo_nodo
+            self.tamanho += 1
+        else:
+            #para compreensão, o dado atual que está na cabeça passa a ser o proximo valor
+            #ou seja, como o novo dado inserido vai para a cabeça, ele é o proximo valor
+            novo_nodo.proximo = self.cabeca
+            self.cabeca = novo_nodo
+        
     
-    def insereFim(lista, nodo_anterior, novo_dado):
+    def insereFim(self, nodo_anterior, novo_dado):
         assert nodo_anterior, "Nodo anterior precisa existir na lista."
 
         novo_nodo = Nodo(novo_dado)
-        #if self.vazia:
-            #self.cabeca = novo_nodo
-            #self.cauda = novo_nodo
-        #else:
-        novo_nodo.proximo = nodo_anterior.proximo
-        nodo_anterior.proximo = novo_nodo
-        #self.tamanho += 1
+        if self.vazia():
+            self.cabeca = novo_nodo
+            self.cauda = novo_nodo
+            self.tamanho += 1
+        else:
+            self.cauda.proximo = novo_nodo
+            self.cauda = novo_nodo
+            self.tamanho += 1
+    
     
     def remove(self, posicao):
-        if self.vazia:
+        if self.vazia():
             return f'Impossível remover valor de lista vazia'
-        elif (posicao) == 0:    #questão de projeto
+
+        if 0 <= posicao < self.tamanho:
+            if posicao == 0:
                 removido = self.cabeca.dado
                 self.cabeca = self.cabeca.proximo
+                self.tamanho -= 1
+
                 if self.cabeca == None:
                     self.cauda = None
+                return removido
+
+            else:
+                atual = self.cabeca
+                aux = 0
+                
+                while aux != posicao:
+                    anterior = atual
+                    atual = atual.proximo
+                    aux += 1
+                removido = atual.dado
+
+                if atual == self.cauda:
+                    self.cauda = anterior
+                anterior.proximo = atual.proximo
                 self.tamanho -= 1
                 return removido
         else:
-            aux = 0
-            if (posicao >= self.tamanho):
-                return 'Posição inválida'
-            else:
-                nodo_atual = self.cabeca
-                while aux != posicao:
-                    nodo_anterior = nodo_atual
-                    nodo_atual = nodo_atual.proximo
-                    aux += 1
-                removido = nodo_atual.dado
-            if nodo_atual == self.cauda:
-                self.cauda = nodo_anterior
-            nodo_anterior.proximo = nodo_atual.proximo
-            self.tamanho -= 1
-            return removido
+            return 'Posição inválida'
     
-    def busca(lista, dado):
-        nodo_atual = lista.cabeca
-        while nodo_atual and nodo_atual.dado != dado:
-            nodo_atual = nodo_atual.proximo
-        return nodo_atual
+    def busca(self, dado):
+        if self.vazia():
+            return 'Lista vazia'
+        else:
+            atual = self.cabeca
+            posicao = 0
+
+            while atual.dado != dado:
+                atual = atual.proximo
+                posicao += 1
+                
+                if posicao == self.tamanho:
+                    return 'Não encontrado'
+            return posicao 
+    
+    def inserePosicao(self, novo_dado, posicao):
+        novo_nodo = Nodo(novo_dado)
         
-    '''def insere(self, novo_dado, posicao):
         if 0 <= posicao <= self.tamanho:
             if posicao == 0:
                 self.insereInicio(novo_dado)
-                self.tamanho += 1
+            
             elif posicao == (self.tamanho):
                 self.insereFim(novo_dado)
-                self.tamanho += 1
+            
             else:
-                nodo_atual = self.cabeca
+                atual = self.cabeca
                 i = 0
+                
                 while i != posicao:
-                    nodo_anterior = nodo_atual
-                    nodo_atual = nodo_atual.proximo
+                    anterior = atual
+                    atual = atual.proximo
                     i += 1
-                removido = nodo_atual.dado
-                if nodo_atual == self.cauda:
-                    self.cauda = nodo_anterior
-                nodo_anterior.proximo = nodo_atual.proximo
-                self.tamanho -= 1'''
+                novo_nodo.proximo = atual
+                anterior.proximo = novo_nodo
+            
+                # adaptar a partir daq
+                removido = atual.dado
+                
+                if atual == self.cauda:
+                    self.cauda = anterior
+                    anterior.proximo = atual.proximo
+                    self.tamanho -= 1
+    
+    def concatenav2(self, lista2):
+        self.cauda.proximo = lista2.cabeca
+        return self
         
+    def concatena(self, lista2):
+        listaConc = Lista()
+        atual = self.cabeca
+        while atual != None:
+            listaConc.insereFim(atual.dado)
+            atual = atual.proximo
+        
+        atual = lista2.cabeca
 
-    def inserir(self, novo_dado, posicao):
-        posicao = posicao - 1
-        if ((posicao < 0) or (posicao > self.tamanho)):
-            print ("Posição inválida!")
-            return False
-        elif (posicao == 0):
-            self.inicio = Nodo(novo_dado, None)
-        else:
-            aux = self.inicio
-            for i in range (1, posicao):
-                aux = aux.proximo
-            aux.proximo = Nodo(novo_dado, aux.proximo)
-        self.tamanho = self.tamanho + 1
-        return True
-
-
-
-#def insere(self, novo_dado, posicao):
-novo_nodo = Nodo(novo_dado)
-if posicao == 0:
-    self.insereInicio(novo_dado)
-elif posicao == self.tamanho:
-    self.insereFim(noov_dado)
-elif self.vazia():
-    print('Lista vazia. Posição inexistente')
-else:
-    #auxiliar para chegar na posição
-    aux= 0
-
-if (posicao >= self.tamanho):
-    print('Posição inválida')
-else:
-    #começa a verificar a posição
-    nodo_atual = self.cabeca
-
-    while aux != posicao:
-        nodo_anterior = nodo_atual
-        nodo_atual = nodo_atual.proximo
-        aux += 1
-
-def concatena(self, lista2):
-    self.cauda.proximo = lista2.cabeca
-    return self
-
-
-l1 = Lista()
+        while atual != None:
+            listaConc.insereFim(atual.dado)
+            atual = atual.proximo
+        return listaConc
