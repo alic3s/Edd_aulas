@@ -7,6 +7,7 @@ def insertionsort(lista):
             lista[i] = lista[j]
             lista[j] = aux
             j -= 1
+            i -= 1
         lista[j + 1] = escolhido
     return lista
 
